@@ -39,7 +39,9 @@ server.use('/orders',orderRouter)
 server.get('/', (req, res) => {
   res.json({ succes: "done" });
 })
-
+server.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 server.listen(8080, () => {
   console.log("server started");
   console.log("http://localhost:8080/");
